@@ -1,10 +1,19 @@
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { PageRouterOutlet } from '@nativescript/angular';
+import { Component } from '@angular/core';
+import { NativeScriptCommonModule } from '@nativescript/angular';
+import { ListOfEntriesComponent } from './list-of-entries/list-of-entries.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @Component({
   selector: 'ns-app',
+  standalone: true,
+  imports: [NativeScriptCommonModule, ListOfEntriesComponent, SettingsComponent],
   templateUrl: './app.component.html',
-  imports: [PageRouterOutlet],
-  schemas: [NO_ERRORS_SCHEMA],
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+  currentIndex = 0;
+
+  switchTab(index: number) {
+    this.currentIndex = index;
+  }
+}

@@ -1,3 +1,11 @@
-<GridLayout>
-  <page-router-outlet></page-router-outlet>
+<GridLayout rows="*, auto">
+  <StackLayout row="0">
+    <ns-list-of-entries *ngIf="currentIndex === 0"></ns-list-of-entries>
+    <ns-settings *ngIf="currentIndex === 1"></ns-settings>
+  </StackLayout>
+
+  <StackLayout row="1" orientation="horizontal" class="bottom-nav" horizontalAlignment="center">
+    <Button text="List" (tap)="switchTab(0)"></Button>
+    <Button text="Settings" (tap)="switchTab(1)"></Button>
+  </StackLayout>
 </GridLayout>
